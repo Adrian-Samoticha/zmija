@@ -1,0 +1,20 @@
+whatever();
+
+/* ~ZMIJA.GENERATOR:
+def declare(variables):
+	variables["on_button_pressed"] = []
+	
+def init(variables):
+	pass
+	
+def generate(variables):
+	r = ""
+	for cb in variables["on_button_pressed"]:
+		r += cb + "\n"
+	return r
+*/// ~ZMIJA.GENERATED_CODE:
+toggle_led();
+
+// ~ZMIJA.END
+
+whatever();
