@@ -2,6 +2,16 @@
 
 <br>
 
+<p align=center>
+<img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/adrian-samoticha/zmija?style=plastic">
+<img alt="GitHub issues" src="https://img.shields.io/github/issues/adrian-samoticha/zmija?style=plastic">
+<img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/adrian-samoticha/zmija?style=plastic">
+<img alt="GitHub commit activity" src="https://img.shields.io/github/commit-activity/y/adrian-samoticha/zmija?style=plastic">
+<img alt="GitHub" src="https://img.shields.io/github/license/adrian-samoticha/zmija?style=plastic">
+</p>
+
+<br>
+
 # Żmija
 **Żmija** is a simple universal code generation tool. It is intended to be used as a means to generate code that is both efficient and easily maintainable.
 
