@@ -36,7 +36,7 @@ def init(variables):
 	
 def generate(variables):
 	return ""
-*]]-- ~ZMIJA.GENERATED_CODE:
+]]-- ~ZMIJA.GENERATED_CODE:
 
 -- ~ZMIJA.END
 ```
