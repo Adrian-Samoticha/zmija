@@ -43,7 +43,12 @@ class GenerationCodeParser:
 	_indent_level = 0
 	
 	def _complete_generation_code(self, code):
-		return code + "\nFunctionHandler.generate_function_return_value = generate(FunctionHandler.variables)"
+		return """
+def generate(variables):
+	return ""
+""" + \
+		       code + \
+		       "\nFunctionHandler.generate_function_return_value = generate(FunctionHandler.variables)"
 	
 	def _reset(self):
 		self._generation_code = ""
