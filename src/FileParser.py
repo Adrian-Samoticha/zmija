@@ -119,7 +119,7 @@ class FileParser:
 				if stripped_line.endswith("~ZMIJA.END"):
 					parse_state = ParseState.SEARCHING
 					
-	def parse_file_generation_pass(some_file):
+	def parse_file_generation_pass(some_file, do_delete):
 		new_content = ""
 		
 		parse_state = ParseState.SEARCHING
@@ -136,7 +136,7 @@ class FileParser:
 				new_content += line
 				
 				if stripped_line.endswith("~ZMIJA.GENERATED_CODE:"):
-					new_content += generation_code_parser.parse()
+					new_content += generation_code_parser.parse() if not do_delete else "\n"
 					parse_state = ParseState.FOUND_GENERATED_CODE
 				else:
 					generation_code_parser.add_line(line)
