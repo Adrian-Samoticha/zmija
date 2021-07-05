@@ -1,3 +1,7 @@
+![Zmija](logo/logo.svg "Zmija")
+
+<br>
+
 # Żmija
 **Żmija** is a simple universal code generation tool. It is intended to be used as a means to generate code that is both efficient and easily maintainable.
 
