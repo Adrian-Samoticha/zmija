@@ -87,8 +87,8 @@ class FileParser:
 				if stripped_line.endswith("~ZMIJA.GENERATED_CODE:"):
 					initialization_code_parser.parse()
 					parse_state = ParseState.FOUND_GENERATED_CODE
-				
-				initialization_code_parser.add_line(line)
+				else:
+					initialization_code_parser.add_line(line)
 			elif parse_state == ParseState.FOUND_GENERATED_CODE:
 				if stripped_line.endswith("~ZMIJA.END"):
 					parse_state = ParseState.SEARCHING
@@ -112,8 +112,8 @@ class FileParser:
 				if stripped_line.endswith("~ZMIJA.GENERATED_CODE:"):
 					new_content += generation_code_parser.parse()
 					parse_state = ParseState.FOUND_GENERATED_CODE
-					
-				generation_code_parser.add_line(line)
+				else:
+					generation_code_parser.add_line(line)
 			elif parse_state == ParseState.FOUND_GENERATED_CODE:
 				if stripped_line.endswith("~ZMIJA.END"):
 					new_content += line
