@@ -67,6 +67,29 @@ The `generate`-function returns the generated code for the section it is located
 
 <br>
 
+Run `python3 zmija.py path/to/your/project/directory/` to perform the code generation. The generated code will be placed between the `~ZMIJA.GENERATED_CODE:` and the `~ZMIJA.END` lines.
+
+<br>
+
+# Help output
+```
+Zmija. Simple universal code generation.
+
+Usage:
+	zmija.py path
+	zmija.py path -d | --delete
+	zmija.py path -c | --check-only
+	zmija.py -h | --help
+	
+Options:
+	-h --help         Show this screen.
+	-d --delete       Delete all generated code.
+	-c --check-only   Check Python code for syntax and runtime errors without writing the changes to file.
+	-u --unsafe       Skip the test pass. May cause data loss if the Python code raises exceptions, but offers better performance. Use with caution.
+```
+
+<br>
+
 # Example
 Say you have two modules, a ButtonController and a LedController. You would like to implement the observer pattern to allow the ButtonController to communicate with the LedController without depending on it.
 
