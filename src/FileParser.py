@@ -1,4 +1,6 @@
 import enum
+import traceback
+import sys
 
 from util.StringUtility import StringUtility
 from FunctionHandler import FunctionHandler
@@ -35,7 +37,17 @@ def init(variables):
 		
 	def parse(self):
 		completed_code = self._complete_initialization_code(self._initialization_code)
-		exec(completed_code)
+		try:
+			exec(completed_code)
+		except SyntaxError:
+			print("SYNTAX ERROR:\n", traceback.format_exc())
+			print("Exiting Zmija.")
+			sys.exit()
+		except (NameError, ValueError) as err:
+			print("RUNTIME ERROR:\n", err)
+			print("Exiting Zmija.")
+			sys.exit()
+			
 		self._reset()
 		
 class GenerationCodeParser:
@@ -67,7 +79,16 @@ def generate(variables):
 		
 	def parse(self):
 		completed_code = self._complete_generation_code(self._generation_code)
-		exec(completed_code)
+		try:
+			exec(completed_code)
+		except SyntaxError:
+			print("SYNTAX ERROR:\n", traceback.format_exc())
+			print("Exiting Zmija.")
+			sys.exit()
+		except (NameError, ValueError) as err:
+			print("RUNTIME ERROR:\n", err)
+			print("Exiting Zmija.")
+			sys.exit()
 		return_value = FunctionHandler.generate_function_return_value
 		return_value = StringUtility.indent_multiline_string(return_value, self._indent_level) + "\n"
 		self._reset()
