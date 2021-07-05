@@ -1,9 +1,6 @@
 whatever();
 
-/* ~ZMIJA.GENERATOR:
-def declare(variables):
-	pass
-	
+/* ~ZMIJA.GENERATOR:	
 def init(variables):
 	variables["on_button_pressed"].append("toggle_led();")
 	

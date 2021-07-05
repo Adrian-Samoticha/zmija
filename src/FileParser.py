@@ -8,7 +8,15 @@ class InitializationCodeParser:
 	_indent_level = 0
 	
 	def _complete_initialization_code(self, code):
-		return code + "\nFunctionHandler.add_function(declare, init)"
+		return """
+def declare(variables):
+	pass
+
+def init(variables):
+	pass
+""" + \
+		       code + \
+		       "\nFunctionHandler.add_function(declare, init)"
 	
 	def _reset(self):
 		self._initialization_code = ""
