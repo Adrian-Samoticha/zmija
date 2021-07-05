@@ -2,16 +2,12 @@ whatever();
 
 /* ~ZMIJA.GENERATOR:
 def declare(variables):
-	variables["on_button_pressed"] = []
+	variables["_on_button_pressed"] = []
 	
 def generate(variables):
-	r = ""
-	for cb in variables["on_button_pressed"]:
-		r += cb + "\n"
-	return r
+	return "\n".join(variables["_on_button_pressed"])
 */// ~ZMIJA.GENERATED_CODE:
 toggle_led();
-
 // ~ZMIJA.END
 
 whatever();

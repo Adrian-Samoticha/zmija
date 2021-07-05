@@ -2,7 +2,7 @@ whatever();
 
 /* ~ZMIJA.GENERATOR:	
 def init(variables):
-	variables["on_button_pressed"].append("toggle_led();")
+	variables["_on_button_pressed"].append("toggle_led();")
 	
 def generate(variables):
 	return ''
