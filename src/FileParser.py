@@ -45,7 +45,7 @@ class GenerationCodeParser:
 		# The Python code in the source file may be indented.
 		# Since Python is sensitive to indentation, the input
 		# needs to be sanitized accordingly.
-		# An empty '_initialization_code' signalizes that we are
+		# An empty '_generation_code' signalizes that we are
 		# reading the first line. Therefore, we calculate the 
 		# indentation level now.
 		if self._generation_code == "":
