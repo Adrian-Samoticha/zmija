@@ -23,7 +23,7 @@ def generate(variables):
 // ~ZMIJA.END
 ```
 
-The section is defined inside a multi-line comment as to not affect the compilation of the code it is located in. **Żmija** supports any languge, including those that have non C-style comment styles.
+The section is defined inside a multi-line comment as to not affect the compilation of the code it is located in. **Żmija** supports any languge, including those that have non C-style comment styles (hence it is univeral).
 
 This is what the same section might look like inside a Lua script, for example:
 ```Python
