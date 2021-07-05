@@ -15,6 +15,12 @@ class InitializationCodeParser:
 		self._indent_level = 0
 		
 	def add_line(self, line):
+		# The Python code in the source file may be indented.
+		# Since Python is sensitive to indentation, the input
+		# needs to be sanitized accordingly.
+		# An empty '_initialization_code' signalizes that we are
+		# reading the first line. Therefore, we calculate the 
+		# indentation level now.
 		if self._initialization_code == "":
 			self._indent_level = StringUtility.get_indentation_of_line(line)
 		self._initialization_code += StringUtility.reduce_indentation_of_line(line, self._indent_level)
@@ -36,6 +42,12 @@ class GenerationCodeParser:
 		self._indent_level = 0
 		
 	def add_line(self, line):
+		# The Python code in the source file may be indented.
+		# Since Python is sensitive to indentation, the input
+		# needs to be sanitized accordingly.
+		# An empty '_initialization_code' signalizes that we are
+		# reading the first line. Therefore, we calculate the 
+		# indentation level now.
 		if self._generation_code == "":
 			self._indent_level = StringUtility.get_indentation_of_line(line)
 		self._generation_code += StringUtility.reduce_indentation_of_line(line, self._indent_level)
