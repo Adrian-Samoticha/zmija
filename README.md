@@ -67,7 +67,7 @@ The `generate`-function returns the generated code for the section it is located
 
 <br>
 
-Run `python3 src/zmija.py path/to/your/project/directory/` to perform the code generation. The generated code will be placed between the `~ZMIJA.GENERATED_CODE:` and the `~ZMIJA.END` lines.
+Run `python3 src/zmija.py /path/to/your/project/directory/` to perform the code generation. The generated code will be placed between the `~ZMIJA.GENERATED_CODE:` and the `~ZMIJA.END` lines.
 
 <br>
 
