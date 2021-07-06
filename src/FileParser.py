@@ -42,11 +42,11 @@ def init(variables):
 		except SyntaxError:
 			print("SYNTAX ERROR:\n", traceback.format_exc())
 			print("Exiting Zmija.")
-			sys.exit()
+			sys.exit(1)
 		except (NameError, ValueError) as err:
 			print("RUNTIME ERROR:\n", err)
 			print("Exiting Zmija.")
-			sys.exit()
+			sys.exit(1)
 			
 		self._reset()
 		
@@ -84,11 +84,11 @@ def generate(variables):
 		except SyntaxError:
 			print("SYNTAX ERROR:\n", traceback.format_exc())
 			print("Exiting Zmija.")
-			sys.exit()
+			sys.exit(1)
 		except (NameError, ValueError) as err:
 			print("RUNTIME ERROR:\n", err)
 			print("Exiting Zmija.")
-			sys.exit()
+			sys.exit(1)
 		return_value = FunctionHandler.generate_function_return_value
 		return_value = StringUtility.indent_multiline_string(return_value, self._indent_level) + "\n"
 		self._reset()
