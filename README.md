@@ -347,5 +347,13 @@ As you can see, **Żmija** has generated the `led_controller->toggle_led();`-lin
 
 <br>
 
+# ROADMAP
+* ☑ Basic functionality
+* ☑ Command line arguments
+* ☐ Config file
+* ☐ Proper testing
+
+<br>
+
 # WARNING
 This project is still WIP. Do not use this in production.
