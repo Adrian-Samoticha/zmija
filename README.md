@@ -15,7 +15,7 @@
 # Żmija
 **Żmija** is a simple universal code generation tool. It is intended to be used as a means to generate code that is both efficient and easily maintainable.
 
-It is intended to be used in embdedded systems with limited resources, however it can be used anywhere else as well.
+It is intended to be used in embedded systems with limited resources, however it can be used anywhere else as well.
 
 <br>
 
