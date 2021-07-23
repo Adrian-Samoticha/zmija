@@ -70,7 +70,7 @@ class Zmija:
 	
 	def main():
 		(do_delete, do_perform_check_only, do_skip_test_pass, path) = Zmija.get_command_line_arguments()
-		run(do_delete, do_perform_check_only, do_skip_test_pass, path)
+		Zmija.run(do_delete, do_perform_check_only, do_skip_test_pass, path)
 
 if __name__ == '__main__':
 	Zmija.main()
