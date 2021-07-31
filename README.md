@@ -55,7 +55,7 @@ def generate(variables):
 -- ~ZMIJA.END
 ```
 
-Each section consists of a `declare`-function, an `init`-function and a `generate`-function.
+Each section consists of a `declare`-function, an `init`-function and a `generate`-function. Each function is provided with the `variables` argument, which is a dictionary that is intended to be used for the storage of variables.
 
 The `declare`-function is executed first. It is meant for variable declaration and should only reference its own variables.
 
