@@ -284,7 +284,7 @@ python3 ./src/zmija.py /path/to/your/project/directory/
 
 <br>
 
-This is what our newly generated .cpp file looks now:
+This is what our newly generated .cpp file looks like now:
 
 ```C++
 #include <stdio.h>
