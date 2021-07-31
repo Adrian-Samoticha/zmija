@@ -20,7 +20,7 @@ It is intended to be used in embedded systems with limited resources, however it
 <br>
 
 # Usage
-**Żmija** lets you define sections in your code where code is generated automatically in accordance to a Python script that you provide. Such a section typically looks like this:
+**Żmija** lets you define sections in your code where code is generated automatically in accordance to a provided Python script. Such a section typically looks like this:
 
 ```Python
 /* ~ZMIJA.GENERATOR:
