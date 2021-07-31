@@ -46,7 +46,7 @@ class CommandLineArgHandler:
 	def get_path():
 		if len(sys.argv) < 2:
 			return "."
-		return sys.argv[1]
+		return sys.argv[1].strip('"')
 		
 	def get_is_requesting_help():
 		return CommandLineArgHandler._check_option_exists("help", 'h')
