@@ -65,6 +65,7 @@ def generate(variables):
 	def _reset(self):
 		self._generation_code = ""
 		self._indent_level = 0
+		self._indent_character = '\t'
 		
 	def add_line(self, line):
 		# The Python code in the source file may be indented.
@@ -75,6 +76,7 @@ def generate(variables):
 		# indentation level now.
 		if self._generation_code == "":
 			self._indent_level = StringUtility.get_indentation_of_line(line)
+			self._indent_character = line[0]
 		self._generation_code += StringUtility.reduce_indentation_of_line(line, self._indent_level)
 		
 	def parse(self):
@@ -90,7 +92,7 @@ def generate(variables):
 			print("Exiting Zmija.")
 			sys.exit(1)
 		return_value = FunctionHandler.generate_function_return_value
-		return_value = StringUtility.indent_multiline_string(return_value, self._indent_level) + "\n"
+		return_value = StringUtility.indent_multiline_string(return_value, self._indent_level, self._indent_character) + "\n"
 		self._reset()
 		return return_value
 		
