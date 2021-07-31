@@ -25,10 +25,25 @@ class Zmija:
 			sys.exit(1)
 		
 		path = CommandLineArgHandler.get_path()
-		return (do_delete, do_perform_check_only, do_skip_test_pass, path)
+		
+		config = {
+			"file_filter": lambda x: True
+		}
+		config_path = CommandLineArgHandler.get_config_path()
+		if config_path != None:
+			if not os.path.isfile(config_path):
+				print("Error: config file does not exist (file path: \"%s\")" % config_path)
+				sys.exit(1)
+			config_file = FileManager.open_file_readonly(config_path)
+			config_file_text = config_file.read()
+			exec(config_file_text + "\n_config_dictionary['file_filter'] = file_filter", {"_config_dictionary": config})
+			config_file.close()
+		
+		return (do_delete, do_perform_check_only, do_skip_test_pass, path, config["file_filter"])
 	
-	def run(do_delete, do_perform_check_only, do_skip_test_pass, path):
+	def run(do_delete, do_perform_check_only, do_skip_test_pass, path, filter):
 		file_paths = FileManager.get_file_paths(path)
+		file_paths = [file_path for file_path in file_paths if filter(file_path)]
 		
 		print("Found %d files." % len(file_paths))
 		
@@ -69,8 +84,8 @@ class Zmija:
 		print("done.")
 	
 	def main():
-		(do_delete, do_perform_check_only, do_skip_test_pass, path) = Zmija.get_command_line_arguments()
-		Zmija.run(do_delete, do_perform_check_only, do_skip_test_pass, path)
+		(do_delete, do_perform_check_only, do_skip_test_pass, path, filter) = Zmija.get_command_line_arguments()
+		Zmija.run(do_delete, do_perform_check_only, do_skip_test_pass, path, filter)
 
 if __name__ == '__main__':
 	Zmija.main()

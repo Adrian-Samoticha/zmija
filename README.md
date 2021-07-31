@@ -67,7 +67,7 @@ The `generate`-function returns the generated code for the section it is located
 
 <br>
 
-Run `python3 src/zmija.py /path/to/your/project/directory/` to perform the code generation. The generated code will be placed between the `~ZMIJA.GENERATED_CODE:` and the `~ZMIJA.END` lines.
+Run `python3 ./src/zmija.py /path/to/your/project/directory/` to perform the code generation. The generated code will be placed between the `~ZMIJA.GENERATED_CODE:` and the `~ZMIJA.END` lines.
 
 <br>
 
@@ -79,14 +79,37 @@ Usage:
 	zmija.py path
 	zmija.py path -d | --delete
 	zmija.py path -c | --check-only
+	zmija.py path --config-path="path/to/config"
 	zmija.py -h | --help
 	
 Options:
 	-h --help         Show this screen.
 	-d --delete       Delete all generated code.
-	-c --check-only   Check Python code for syntax and runtime errors without writing the changes to file.
-	-u --unsafe       Skip the test pass. May cause data loss if the Python code raises exceptions, but offers better performance. Use with caution.
+	-c --check-only   Check Python code for syntax and runtime errors without writing the
+	                  changes to file.
+	-u --unsafe       Skip the test pass. May cause data loss if the Python code raises
+	                  exceptions, but offers better performance. Use with caution.
+	--config-path     Provides a path to a configuration file.
+	
+Config:
+	file_filter(file_path)     A function intended to filter file paths. Any file path
+	                           for which this function returns False is ignored.
 ```
+
+<br>
+
+# Config
+You can define a file path filter function inside a config file, such that certain files are ignored by **Żmija**.
+
+Here's what an example config file may look like:
+```python
+def file_filter(file_path):
+	return file_path.endswith('.cpp') or file_path.endswith('.h')
+```
+
+The file path of the config file needs to be supplied using the `--config-file` argument, like so:
+
+`python3 ./src/zmija.py /path/to/your/project/directory/ --config-file="/path/to/your/config/file"`
 
 <br>
 
@@ -256,7 +279,7 @@ int main() {
 
 Let's run **Żmija**:
 ```console
-python3 src/zmija.py /path/to/your/project/directory/
+python3 ./src/zmija.py /path/to/your/project/directory/
 ```
 
 <br>
@@ -350,8 +373,8 @@ As you can see, **Żmija** has generated the `led_controller->toggle_led();`-lin
 # ROADMAP
 * ☑ Basic functionality
 * ☑ Command line arguments
-* ☐ Config file
-* ☐ Proper testing
+* ☑ Config file
+* ☐ Proper test suite
 
 <br>
 
