@@ -375,6 +375,7 @@ As you can see, **Żmija** has generated the `led_controller->toggle_led();`-lin
 * ☑ Command line arguments
 * ☑ Config file
 * ☐ Proper test suite
+* ☐ Support for languages that do not support block comments
 
 <br>
 
