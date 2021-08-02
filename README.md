@@ -370,7 +370,7 @@ As you can see, **Żmija** has generated the `led_controller->toggle_led();`-lin
 
 <br>
 
-# ROADMAP
+# TODO
 * ☑ Basic functionality
 * ☑ Command line arguments
 * ☑ Config file
