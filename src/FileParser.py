@@ -36,7 +36,8 @@ def init(variables):
 		self._initialization_code += StringUtility.reduce_indentation_of_line(line, self._indent_level)
 		
 	def parse(self):
-		completed_code = self._complete_initialization_code(self._initialization_code)
+		uncommented_code = StringUtility.uncomment_code(self._initialization_code)
+		completed_code = self._complete_initialization_code(uncommented_code)
 		try:
 			exec(completed_code)
 		except SyntaxError:
@@ -80,7 +81,8 @@ def generate(variables):
 		self._generation_code += StringUtility.reduce_indentation_of_line(line, self._indent_level)
 		
 	def parse(self):
-		completed_code = self._complete_generation_code(self._generation_code)
+		uncommented_code = StringUtility.uncomment_code(self._generation_code)
+		completed_code = self._complete_generation_code(uncommented_code)
 		try:
 			exec(completed_code)
 		except SyntaxError:
