@@ -60,7 +60,7 @@ def generate(variables):
 end
 """)
 		file2.close()
-		Zmija.run(False, False, False, PATH)
+		Zmija.run(False, False, False, PATH, lambda x: True)
 		
 		file1 = open(PATH + "file1.txt", "r")
 		self.assertEqual(file1.read(), """begin
@@ -162,7 +162,7 @@ SOME GARBAGE
 end""")
 		file.close()
 		
-		Zmija.run(False, False, False, PATH)
+		Zmija.run(False, False, False, PATH, lambda x: True)
 		
 		file = open(PATH + "file.txt", "r")
 		self.assertEqual(file.read(), """begin
