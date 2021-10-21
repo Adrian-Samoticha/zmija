@@ -52,7 +52,10 @@ class Zmija:
 		print("Performing initialization pass...", end="")
 		for file_path in file_paths:
 			some_file = FileManager.open_file_readonly(file_path)
-			FileParser.parse_file_initialization_pass(some_file)
+			try:
+				FileParser.parse_file_initialization_pass(some_file)
+			except UnicodeDecodeError:
+				pass
 			some_file.close()
 			
 		FunctionHandler.execute_functions()
@@ -65,7 +68,12 @@ class Zmija:
 			print("Performing test generation pass...", end="")
 			for file_path in file_paths:
 				some_file = FileManager.open_file_readonly(file_path)
-				new_content = FileParser.parse_file_generation_pass(some_file, do_delete)
+				try:
+					FileParser.parse_file_generation_pass(some_file, do_delete)
+				except UnicodeDecodeError:
+					# If a UnicodeDecodeError is thrown, that usually means that the opened file
+					# is not a text file. No further error handling is necessary in this case.
+					pass
 				some_file.close()
 			print("done.")
 			
@@ -76,11 +84,19 @@ class Zmija:
 		print("Performing actual generation pass...", end="")
 		for file_path in file_paths:
 			some_file = FileManager.open_file_readonly(file_path)
-			new_content = FileParser.parse_file_generation_pass(some_file, do_delete)
+			new_content = None
+			try:
+				new_content = FileParser.parse_file_generation_pass(some_file, do_delete)
+			except UnicodeDecodeError:
+				# If a UnicodeDecodeError is thrown, that usually means that the opened file
+				# is not a text file. No further error handling is necessary in this case.
+				pass
 			some_file.close()
-			some_file = FileManager.open_file_writeonly(file_path)
-			some_file.write(new_content)
-			some_file.close()
+			
+			if new_content != None:
+				some_file = FileManager.open_file_writeonly(file_path)
+				some_file.write(new_content)
+				some_file.close()
 		print("done.")
 	
 	def main():
